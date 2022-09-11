@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const headerOptions = {
   "Content-Type": "application/json",
 };
@@ -9,13 +11,8 @@ const options = {
 const url = `${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/api`;
 
 const api = async (subUrl, jsonData) => {
- 
   try {
-    const response = await fetch(`${url}/${subUrl}`, {
-      data: JSON.stringify(jsonData),
-      options,
-      method: "POST",
-    });
+    const response = await axios.post(`${url}/${subUrl}`, jsonData, options);
     const result = await response.text();
     console.table(result);
 
