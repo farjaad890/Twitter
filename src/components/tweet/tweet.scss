@@ -1,0 +1,58 @@
+.tweet{
+    padding-top: 50px;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+    .component{
+        display: flex;
+        padding: 0;
+        align-items: center;
+    }
+    .input{
+        margin-left: 10px;
+        width: 100%;
+        height: 50px; 
+    }
+    .input-field{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+        background:#fff;
+        color: rgb(0, 0, 0);
+    }
+    .icons-holder{
+        display: flex;
+        font-size: 20px;
+        margin-top: 15px;
+        margin-left: 12px;
+        width: 100%;
+        height: 100%;
+    .icons{
+        width: 50%;
+        svg{
+            height: 1.8em;
+            margin: 0 10px;
+            font-size: 20px;
+            cursor: pointer;
+            &:hover{
+                background: #1da1f2;
+            }
+        }
+    }
+    .Tweet-button{
+        align-content: center;
+        margin-left: 35%;
+        margin-right: 5%;
+        border-radius: 1.5em;
+        font-size: 0.8em;
+        height: 2em;
+        width: 15%;
+        background: #1da1f2;
+
+        &:hover{
+            background: #086199;
+        }
+    }
+}
+
+}

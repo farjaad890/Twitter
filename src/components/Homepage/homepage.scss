@@ -1,0 +1,17 @@
+.Homepage{
+    background: #15202b;    
+    color: #fff;
+    min-height: 100%;
+    width: 100%;
+    border-right: 1px solid #fff;
+    .homepage-heading{
+        width: 48.44%;
+        position: fixed;
+        top: 0;
+        font-weight:bold;
+        padding: 15px;
+        border-bottom: 1px solid #fff;
+        border-right: 1px solid #fff;
+        background: #15202b;
+    }
+}

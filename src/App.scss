@@ -1,0 +1,16 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.app{
+  font-family: 'Segoe UI','Times New Roman',Time,serif;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  background: #171717;
+  color: #fff;
+}
+.rigt-plane{
+  background: #fefeff;
+  color: #fff;
+  min-height: 100vh;
+}

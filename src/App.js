@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Homepage from "./components/Homepage/homepage";
+import LeftPlane from "./components/leftpanel/leftplane";
+import Post from "./components/tweet/tweet";
+import Main from "./components/main/main";
+import Login from "./components/login/login";
+import Signup from "./components/signup/signup";
+import "./App.scss";
+
+const App = (props) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn")
   );
-}
+  return (
+    <>
+      <Signup></Signup>
+      {/* {!isLoggedIn && <Login setIsLoggedIn={setIsLoggedIn} />}
+      {isLoggedIn && <Main />} */}
+    </>
+  );
+};
 
 export default App;

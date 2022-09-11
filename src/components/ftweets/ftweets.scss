@@ -1,0 +1,31 @@
+.ftweets{
+    padding: 20px;
+    border: 1px solid #fff;
+}
+.ftweet__first{
+    display: flex;   
+}
+.post__first__img{
+    overflow: hidden;
+    height: 60px;
+    width: 60px;
+}
+.post__first__img img{
+    width:fit-content;
+    height: fit-content;
+}
+.post__first__name{
+    margin-left: 6px;
+    margin-right: 5px;
+}
+.ftweet__details{
+    margin: 6px 20px;
+    overflow: hidden;
+}
+.post__details__img{
+    width: 100%;
+}
+.post__details__img img{
+    width: 100%;
+    height:fit-content;
+}
