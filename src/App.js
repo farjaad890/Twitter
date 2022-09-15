@@ -11,14 +11,15 @@ import Signup from "./components/signup/signup";
 import "./App.scss";
 
 const App = (props) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn")
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState("");
+  localStorage.getItem("isLoggedIn");
+  console.log(localStorage.getItem("isLoggedIn"));
+  console.log(localStorage.getItem(123));
+  console.log(localStorage.getItem("isLoggedIn"));
   return (
     <>
-      <Signup></Signup>
-      {/* {!isLoggedIn && <Login setIsLoggedIn={setIsLoggedIn} />}
-      {isLoggedIn && <Main />} */}
+      {!isLoggedIn && <Login setIsLoggedIn={setIsLoggedIn} />}
+      {isLoggedIn && <Main />}
     </>
   );
 };

@@ -2,26 +2,16 @@ import React, { useEffect, useState } from "react";
 import Post from "../tweet/tweet";
 import Ftweets from "../ftweets/ftweets";
 import "./homepage.scss";
+import { fetchTweets } from "../../helpers";
 
 const Homepage = () => {
   const [fetchedTweets, setTweets] = useState([]);
   useEffect(() => {
     const getTweets = async () => {
-      // const resp = await fetch('apiurl');\
-      const resp = {
-        body: [
-          {
-            _id: "631d811c3c97bbeaf673c0fc",
-            text: "my fifth tweet",
-            privacy: "everyone",
-            whoCanReply: "everyone",
-            mentioned: [],
-            hashTags: [],
-            user: "631d80f43c97bbeaf673c0f2",
-          },
-        ],
-      };
-      setTweets(resp.body);
+      const parsedResp = await fetchTweets();
+      console.log("Hello from get tweets");
+      console.log(parsedResp);
+      setTweets(parsedResp.data);
       return true;
     };
     getTweets();

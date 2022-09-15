@@ -13,6 +13,9 @@ const Post = () => {
     //console.log(username.value);
     //console.log(password.value);
   };
+  const handlepoole = () => {
+    console.log("Hello from the polls");
+  };
   return (
     <div className="tweet">
       <div className="component">
@@ -41,7 +44,7 @@ const Post = () => {
           <span>{Emoji}</span>
           <span>{GIF}</span>
           <span>{media}</span>
-          <span>{polls}</span>
+          <span onClick={handlepoole}>{polls}</span>
         </div>
         <button onClick={postTweet} className="Tweet-button">
           Tweet
