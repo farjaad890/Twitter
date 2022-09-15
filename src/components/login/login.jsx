@@ -32,6 +32,7 @@ const Login = (props) => {
       password: password.value,
     };
     const parsedResp = await login(raw);
+    console.log("hello", parsedResp.headers); 
 
     // console.log(parsedResp);
     // console.log(parsedResp.status);

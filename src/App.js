@@ -13,9 +13,9 @@ import "./App.scss";
 const App = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState("");
   localStorage.getItem("isLoggedIn");
-  console.log(localStorage.getItem("isLoggedIn"));
-  console.log(localStorage.getItem(123));
-  console.log(localStorage.getItem("isLoggedIn"));
+  // console.log(localStorage.getItem("isLoggedIn"));
+  // console.log(localStorage.getItem(123));
+  // console.log(localStorage.getItem("isLoggedIn"));
   return (
     <>
       {!isLoggedIn && <Login setIsLoggedIn={setIsLoggedIn} />}

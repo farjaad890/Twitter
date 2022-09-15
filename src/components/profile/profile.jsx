@@ -10,7 +10,7 @@ import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 const Profile = () => {
   const [follow, setFollow] = useState(true);
 
-  console.log(follow);
+  // console.log(follow);
 
   const followHandler = () => {
     if (follow === true) {

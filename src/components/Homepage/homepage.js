@@ -9,8 +9,8 @@ const Homepage = () => {
   useEffect(() => {
     const getTweets = async () => {
       const parsedResp = await fetchTweets();
-      console.log("Hello from get tweets");
-      console.log(parsedResp);
+      // console.log("Hello from get tweets");
+      // console.log(parsedResp);
       setTweets(parsedResp.data);
       return true;
     };

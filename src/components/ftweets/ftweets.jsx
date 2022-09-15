@@ -3,7 +3,7 @@ import "./ftweets.scss";
 const ftweets = (props) => {
   const { tweet } = props;
   const { _id, text, privacy, user, whoCanReply, mentioned, hashTags } = tweet;
-  console.log(props);
+  // console.log(props);
   return (
     <div className="ftweets">
       <div className="ftweet__first">
