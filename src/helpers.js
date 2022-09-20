@@ -1,23 +1,23 @@
 import axios from "axios";
 
 const headerOptionsLoginSignup = {
-  "Content-Type": "application/json",
+  "Content-Type": "application/json"
 };
 
 const headerOptions = {
   "Content-Type": "application/json",
-  "X-Auth-Token": localStorage.getItem(123),
+  "X-Auth-Token": localStorage.getItem(123)
 };
 
 const options = (methodType, auth) => {
   return {
     method: methodType,
-    headers: auth ? headerOptions : headerOptionsLoginSignup,
+    headers: auth ? headerOptions : headerOptionsLoginSignup
   };
 };
 
-// const url = `${process.env.REACT_APP_HOST}/api`;
-const url = "http://10.10.40.184:8080/api";
+const url = `${process.env.REACT_APP_HOST}/api`;
+// const url = "http://10.10.40.184:8080/api";
 
 const apiPost = async (subUrl, jsonData, auth) => {
   try {
