@@ -1,22 +1,23 @@
 import axios from "axios";
 
 const headerOptionsLoginSignup = {
-  "Content-Type": "application/json"
+  "Content-Type": "application/json",
 };
 
 const headerOptions = {
   "Content-Type": "application/json",
-  "X-Auth-Token": localStorage.getItem(123)
+  "X-Auth-Token": localStorage.getItem(123),
 };
 
 const options = (methodType, auth) => {
   return {
     method: methodType,
-    headers: auth ? headerOptions : headerOptionsLoginSignup
+    headers: auth ? headerOptions : headerOptionsLoginSignup,
   };
 };
 
-const url = `${process.env.REACT_APP_HOST}/api`;
+// const url = `${process.env.REACT_APP_HOST}/api`;
+const url = "http://10.10.40.184:8080/api";
 
 const apiPost = async (subUrl, jsonData, auth) => {
   try {
@@ -57,5 +58,13 @@ export const login = async (jsonData) => {
 };
 export const fetchTweets = async () => {
   const api = `tweet/`;
+  return await apiGet(api, true);
+};
+export const fetchTrends = async () => {
+  const api = `tweet/trends`;
+  return await apiGet(api, true);
+};
+export const fetchAccounts = async () => {
+  const api = `user/suggestions`;
   return await apiGet(api, true);
 };

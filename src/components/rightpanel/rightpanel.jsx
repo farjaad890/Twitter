@@ -1,10 +1,31 @@
-import React from "react";
 import TrendsComponent from "./Trendscomponent/trendscomponent";
 import AccountMight from "./Accountsmight/accountsmight";
 import { RiSearchLine } from "react-icons/ri";
 import { IoSettingsOutline } from "react-icons/io5";
 import "./rightpanel.scss";
+import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { fetchTrends } from "../../helpers";
+import { fetchAccounts } from "../../helpers";
+
 const Rightpanel = () => {
+  const [fetchedTrends, setTrends] = useState([]);
+  const [fetchedAccounts, setAccounts] = useState([]);
+
+  useEffect(() => {
+    const getAccounts = async () => {
+      const response = await fetchAccounts();
+      setAccounts(response.data);
+      return true;
+    };
+    const getTrends = async () => {
+      const parsedResp = await fetchTrends();
+      setTrends(parsedResp.data);
+      return true;
+    };
+    getAccounts();
+    getTrends();
+  }, []);
   return (
     <div id="container-right">
       <div id="fixed-search">
@@ -29,7 +50,11 @@ const Rightpanel = () => {
 
       <div id="might-like-box">
         <h2 id="title-might">You might like</h2>
-        <AccountMight
+        {fetchedAccounts.map((account) => (
+          <AccountMight account={account} />
+        ))}
+
+        {/* <AccountMight
           verified={false}
           name="matin turkaman"
           id="@matinTurkaman"
@@ -52,7 +77,7 @@ const Rightpanel = () => {
           name="React"
           id="@reactjs"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU4lrqANPnXmusNdulIrE2Vg1VPQHHpOmqo6lFMzRn0k7iH3JzFSIXaOG2h78uIUEB8uQ&usqp=CAU"
-        />
+        /> */}
 
         <div id="show-more-box">
           <button id="show-more-btn">Show more</button>
@@ -66,17 +91,26 @@ const Rightpanel = () => {
             <IoSettingsOutline id="setting-icon" />
           </span>
         </div>
+        {fetchedTrends.map((trends) => (
+          <TrendsComponent trends={trends} />
+        ))}
 
-        <TrendsComponent name="ReactJs" number="53.2K" />
+        {/* <TrendsComponent name="ReactJs" number="53.2K" />
         <TrendsComponent name="Javascript" number="28.5K" />
         <TrendsComponent name="GitHub" number="15.3K" />
-        <TrendsComponent name="Google" number="20.8K" />
+        <TrendsComponent name="Google" number="20.8K" /> */}
 
         <div id="show-more-box">
           <button id="show-more-btn">Show more</button>
         </div>
       </div>
-
+      <NavLink to="/hashplus">
+        <div id="donating-container">
+          <div id="header-trends">
+            <p id="trends-text">Search for #+</p>
+          </div>
+        </div>
+      </NavLink>
       <footer id="footer">
         <div id="footer-top">
           <a id="trems" href="#" onClick={(e) => e.preventDefault()}>

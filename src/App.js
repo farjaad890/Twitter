@@ -10,9 +10,9 @@ import Login from "./components/login/login";
 import Signup from "./components/signup/signup";
 import "./App.scss";
 
-const App = (props) => {
+const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState("");
-  localStorage.getItem("isLoggedIn");
+  // localStorage.getItem("isLoggedIn");
   // console.log(localStorage.getItem("isLoggedIn"));
   // console.log(localStorage.getItem(123));
   // console.log(localStorage.getItem("isLoggedIn"));

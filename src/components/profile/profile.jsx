@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./profile.scss";
 import Tweet from "../ctweet/ctweet";
 import { BiArrowBack } from "react-icons/bi";
 import { CgMoreAlt, CgCalendarDates } from "react-icons/cg";
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import { fetchTweets } from "../../helpers";
 
 //import Tweet from "../tweet/tweet";
 
 const Profile = () => {
   const [follow, setFollow] = useState(true);
+  const [fetchedTweets, setTweets] = useState([]);
+  useEffect(() => {
+    const getTweets = async () => {
+      const parsedResp = await fetchTweets();
+      setTweets(parsedResp.data);
+      return true;
+    };
+    getTweets();
+  }, []);
 
   // console.log(follow);
 
@@ -95,8 +105,10 @@ const Profile = () => {
       </div>
 
       <div id="line"></div>
-
-      <Tweet
+      {fetchedTweets.map((tweet) => (
+        <Tweet tweet={tweet} />
+      ))}
+      {/* <Tweet
         tweet="😎این یک متن ساختگی برای این پروژه است"
         likeNumber="25"
         comment="1"
@@ -115,10 +127,11 @@ const Profile = () => {
         likeNumber="60"
       />
       <Tweet tweet="اگه وقت بزاری میشه ☄" likeNumber="60" />
+      
       <Tweet
         tweet="فکر نمیکردم یه دوره رو بتونم تو دو روز تموم  کنم"
         likeNumber="60"
-      />
+      /> */}
     </div>
   );
 };

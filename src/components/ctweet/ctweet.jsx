@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { CgMoreAlt } from "react-icons/cg";
 import { SiGoogleanalytics } from "react-icons/si";
@@ -8,6 +9,23 @@ import { FaRegComment } from "react-icons/fa";
 
 const Tweet = (props) => {
   const [like, setLike] = useState(false);
+  const { tweet } = props;
+  const {
+    _id,
+    text,
+    privacy,
+    user,
+    whoCanReply,
+    mentioned,
+    hashTags,
+    replies,
+  } = tweet;
+
+  const navigate = useNavigate();
+
+  const navigateTo = () => {
+    navigate("/retweetDonation", { state: { name: "hello from the retweet" } });
+  };
 
   const likeHandler = () => {
     if (like === false) {
@@ -30,9 +48,9 @@ const Tweet = (props) => {
       <div id="box-tweet">
         <div id="name-id">
           <span id="flex-tweet">
-            <p id="tweet-name">ali turkaman</p>
-            <p id="tweet-id">@ATurkaman . </p>
-            <p id="tweet-date">Aug 10</p>
+            <p id="tweet-name">{user.name}</p>
+            <p id="tweet-id">@{user.username} </p>
+            <p id="tweet-date"></p>
           </span>
 
           <span id="span-more">
@@ -41,7 +59,7 @@ const Tweet = (props) => {
         </div>
 
         <div id="post-box">
-          <p id="text-tweet"> {props.tweet} </p>
+          <p id="text-tweet"> {text} </p>
         </div>
 
         <div id="nav-bottom-post">
@@ -49,27 +67,28 @@ const Tweet = (props) => {
             <span className="comment" id="nav-icon-box">
               <FaRegComment />
             </span>
-            <p id="comment-tweet">{props.comment} </p>
+            <p id="comment-tweet">{replies.length} </p>
           </div>
           <span className="retweet" id="nav-icon-box">
             <AiOutlineRetweet />
           </span>
-          <span className="retweet" id="nav-icon-box">
+          <span className="retweet" id="nav-icon-box" onClick={navigateTo}>
             <AiOutlineRetweet />+
           </span>
           <div id="box-like-number">
             <span onClick={likeHandler} className="like" id="nav-icon-box">
+              {}
               {like === true ? (
                 <AiFillHeart id="red-heart" />
               ) : (
                 <AiOutlineHeart />
               )}
             </span>
-            <spna id="like-number">
+            <span id="like-number">
               {like === true
                 ? parseInt(props.likeNumber) + 1
                 : props.likeNumber}
-            </spna>
+            </span>
           </div>
           <span className="share" id="nav-icon-box">
             <FiShare />

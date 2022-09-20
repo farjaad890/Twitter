@@ -32,8 +32,6 @@ const Login = (props) => {
       password: password.value,
     };
     const parsedResp = await login(raw);
-    console.log("hello", parsedResp.headers); 
-
     // console.log(parsedResp);
     // console.log(parsedResp.status);
     // console.log(parsedResp.data._id);
@@ -42,6 +40,7 @@ const Login = (props) => {
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem(123, parsedResp.headers["x-auth-token"]);
       setIsLoggedIn(true);
+      RequestAccounts();
     } else {
       console.log("Error");
     }

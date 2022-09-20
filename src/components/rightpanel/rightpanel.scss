@@ -280,6 +280,17 @@
     color: #646464;
     margin-top: 6px;
   }
+  #donating-container {
+    width: 90%;
+    height: auto;
+    border-radius: 16px;
+    background: #f1f1f1c4;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  #donating-container:hover {
+    background: #e2e2e2c4;
+  }
   #footer {
     width: 100%;
   }
@@ -359,7 +370,8 @@
       margin-right: 8px;
       font-size: 11px;
     }
-    .image-box {
-    width: 2000px;
-    }
+
+  }
+  .image-box{
+    width: 200px;
   }

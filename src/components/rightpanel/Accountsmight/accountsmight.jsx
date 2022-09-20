@@ -5,6 +5,8 @@ import { GoVerified } from "react-icons/go";
 const AccountMight = (props) => {
   const [follow, setFollow] = useState(false);
   const [verified, setVerified] = useState(true);
+  const { account } = props;
+  const { name, email } = account;
 
   const followHandler = () => {
     if (follow === false) {
@@ -18,14 +20,18 @@ const AccountMight = (props) => {
     <div id="box-account-might">
       <div id="container-might">
         <div id="row_">
-          <img id="profile-might" src={props.src} alt="profile" />
+          <img
+            id="profile-might"
+            src="https://avatars.githubusercontent.com/u/79017406?v=4"
+            alt="profile"
+          />
         </div>
         <div id="name-id-might">
           <div id="verified-box">
-            <p id="name-might"> {props.name} </p>
+            <p id="name-might"> {name} </p>
             {verified === props.verified && <GoVerified id="verified" />}
           </div>
-          <p id="id-might"> {props.id} </p>
+          <p id="id-might"> {email} </p>
         </div>
       </div>
 
