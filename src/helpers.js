@@ -44,7 +44,7 @@ const apiGet = async (subUrl, auth) => {
   }
 };
 
-export const register = async (jsonData) => {
+export const register = async jsonData => {
   const uri = `user/signup`;
   const response = await apiPost(uri, jsonData);
 
@@ -52,7 +52,7 @@ export const register = async (jsonData) => {
   return response;
 };
 
-export const login = async (jsonData) => {
+export const login = async jsonData => {
   const api = `user/login`;
   return await apiPost(api, jsonData, false);
 };
@@ -67,4 +67,9 @@ export const fetchTrends = async () => {
 export const fetchAccounts = async () => {
   const api = `user/suggestions`;
   return await apiGet(api, true);
+};
+
+export const followUser = async _id => {
+  const api = `user/follow/${_id}`;
+  return await apiPost(api, true);
 };
