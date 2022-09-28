@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-
+import { followUser } from "../../../helpers";
+import { unfollowUser } from "../../../helpers";
 import { GoVerified } from "react-icons/go";
 
 const AccountMight = (props) => {
   const [follow, setFollow] = useState(false);
   const [verified, setVerified] = useState(true);
   const { account } = props;
-  const { name, email } = account;
+  const { name, email, _id } = account;
 
-  const followHandler = () => {
+  const followHandler = async (_id) => {
+    console.log(_id);
     if (follow === false) {
+      const request = await followUser(_id);
+      console.log(request);
+      console.log("userfollowed");
       setFollow(true);
     } else if (follow === true) {
+      const req = await unfollowUser(_id);
+      console.log("user unfollowed");
       setFollow(false);
     }
   };
@@ -36,7 +43,7 @@ const AccountMight = (props) => {
       </div>
 
       <button
-        onClick={followHandler}
+        onClick={() => followHandler(_id)}
         id={follow === false ? "follow-might" : "following-might"}
       >
         {follow === true ? "Following" : "Follow"}

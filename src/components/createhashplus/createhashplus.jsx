@@ -10,7 +10,7 @@ const CreateHashplus = () => {
           id="Title"
           name="title"
           //   value={formData.title}
-          placeholder="Playstation 5"
+          placeholder="#+React"
           required
           //   onChange={handleChange}
         />

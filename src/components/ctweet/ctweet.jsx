@@ -77,17 +77,11 @@ const Tweet = (props) => {
           </span>
           <div id="box-like-number">
             <span onClick={likeHandler} className="like" id="nav-icon-box">
-              {}
               {like === true ? (
                 <AiFillHeart id="red-heart" />
               ) : (
                 <AiOutlineHeart />
               )}
-            </span>
-            <span id="like-number">
-              {like === true
-                ? parseInt(props.likeNumber) + 1
-                : props.likeNumber}
             </span>
           </div>
           <span className="share" id="nav-icon-box">
