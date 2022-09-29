@@ -1,18 +1,18 @@
 import axios from "axios";
 
 const headerOptionsLoginSignup = {
-  "Content-Type": "application/json"
+  "Content-Type": "application/json",
 };
 
 const headerOptions = {
   "Content-Type": "application/json",
-  "X-Auth-Token": localStorage.getItem(123)
+  "X-Auth-Token": localStorage.getItem(123),
 };
 
 const options = (methodType, auth) => {
   return {
     method: methodType,
-    headers: auth ? headerOptions : headerOptionsLoginSignup
+    headers: auth ? headerOptions : headerOptionsLoginSignup,
   };
 };
 
@@ -44,7 +44,7 @@ const apiGet = async (subUrl, auth) => {
   }
 };
 
-export const register = async jsonData => {
+export const register = async (jsonData) => {
   const uri = `user/signup`;
   const response = await apiPost(uri, jsonData);
 
@@ -52,7 +52,7 @@ export const register = async jsonData => {
   return response;
 };
 
-export const login = async jsonData => {
+export const login = async (jsonData) => {
   const api = `user/login`;
   return await apiPost(api, jsonData, false);
 };
@@ -69,16 +69,17 @@ export const fetchAccounts = async () => {
   return await apiGet(api, true);
 };
 
-export const followUser = async _id => {
+export const followUser = async (_id) => {
   const api = `user/follow/${_id}`;
   return await apiPost(api, {}, true);
 };
-export const unfollowUser = async _id => {
-  const api = `user/follow/${_id}`;
+export const unfollowUser = async (_id) => {
+  const api = `user/unfollow/${_id}`;
   return await apiPost(api, {}, true);
 };
 
-export const createHashTagPlus = async jsonData => {
-  const api = "api/hashtagplus/";
+export const createHashTagPlus = async (jsonData) => {
+  console.log(jsonData);
+  const api = "hashtagplus/";
   return await apiPost(api, jsonData, true);
 };

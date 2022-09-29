@@ -21,6 +21,7 @@ const HashplusTile = (props) => {
       <div id="trends-left-box">
         <p id="tweet-number">{props.balance}</p>
         <p id="title-trends">{props.name}</p>
+        <p>this is the descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
         <p id="trending">polling on : {props.date}</p>
         <p id="trending">{props.ownername}</p>
         <button

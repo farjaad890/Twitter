@@ -18,6 +18,7 @@ const AccountMight = (props) => {
       setFollow(true);
     } else if (follow === true) {
       const req = await unfollowUser(_id);
+      console.log(req);
       console.log("user unfollowed");
       setFollow(false);
     }

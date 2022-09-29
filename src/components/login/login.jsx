@@ -32,10 +32,6 @@ const Login = (props) => {
       password: password.value,
     };
     const parsedResp = await login(raw);
-    // console.log(parsedResp);
-    // console.log(parsedResp.status);
-    // console.log(parsedResp.data._id);
-    // console.log(parsedResp.headers["x-auth-token"]);
     if (parsedResp.status == 200) {
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem(123, parsedResp.headers["x-auth-token"]);

@@ -20,6 +20,8 @@ const Rightpanel = () => {
     };
     const getTrends = async () => {
       const parsedResp = await fetchTrends();
+      console.log("these are the trends");
+      console.log(parsedResp);
       setTrends(parsedResp.data);
       return true;
     };
@@ -53,32 +55,6 @@ const Rightpanel = () => {
         {fetchedAccounts.map((account) => (
           <AccountMight account={account} />
         ))}
-
-        {/* <AccountMight
-          verified={false}
-          name="matin turkaman"
-          id="@matinTurkaman"
-          src="https://avatars.githubusercontent.com/u/79017406?v=4"
-        />
-        <AccountMight
-          verified={true}
-          name="JavaScript"
-          id="@JavaScript"
-          src="https://usefulangle.com/img/thumb/javascript.png"
-        />
-        <AccountMight
-          verified={true}
-          name="GitHub"
-          id="@github"
-          src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-        />
-        <AccountMight
-          verified={true}
-          name="React"
-          id="@reactjs"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU4lrqANPnXmusNdulIrE2Vg1VPQHHpOmqo6lFMzRn0k7iH3JzFSIXaOG2h78uIUEB8uQ&usqp=CAU"
-        /> */}
-
         <div id="show-more-box">
           <button id="show-more-btn">Show more</button>
         </div>
@@ -94,12 +70,6 @@ const Rightpanel = () => {
         {fetchedTrends.map((trends) => (
           <TrendsComponent trends={trends} />
         ))}
-
-        {/* <TrendsComponent name="ReactJs" number="53.2K" />
-        <TrendsComponent name="Javascript" number="28.5K" />
-        <TrendsComponent name="GitHub" number="15.3K" />
-        <TrendsComponent name="Google" number="20.8K" /> */}
-
         <div id="show-more-box">
           <button id="show-more-btn">Show more</button>
         </div>

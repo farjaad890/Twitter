@@ -1,18 +1,40 @@
 import React from "react";
+import { createHashTagPlus } from "../../helpers";
 import "./createhashplus.css";
 const CreateHashplus = () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const { Date, title, description, Address } = e.target;
+    const d = new window.Date(Date.value.toString());
+    const date = d.toISOString();
+    const Timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    console.log("This is working");
+    console.log(Date.value);
+    console.log(title.value);
+    console.log(description.value);
+    console.log(Address.value);
+    console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
+    console.log(date);
+    var raw = {
+      text: title.value,
+      expiry: date,
+      donateTo: Address.value,
+      timezone: Timezone,
+      description: description.value,
+    };
+    const parsedResp = await createHashTagPlus(raw);
+    console.log(parsedResp);
+  };
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <div className="input-group">
         <label htmlFor="Title">Title</label>
         <input
           type="text"
           id="Title"
           name="title"
-          //   value={formData.title}
           placeholder="#+React"
           required
-          //   onChange={handleChange}
         />
       </div>
 
@@ -23,23 +45,14 @@ const CreateHashplus = () => {
           rows="6"
           id="Description"
           name="description"
-          //   value={formData.description}
           placeholder="Its the description"
           required
-          //   onChange={handleChange}
         />
       </div>
 
       <div className="input-group">
         <label htmlFor="imageUrl">Recepient Address</label>
-        <input
-          type="text"
-          id="imageUrl"
-          name="imageUrl"
-          placeholder="Address"
-          required
-          //   onChange={handleChange}
-        />
+        <input type="text" name="Address" placeholder="Address" required />
       </div>
       <div className="input-group">
         <label htmlFor="Date">Date</label>
