@@ -79,7 +79,26 @@ export const unfollowUser = async (_id) => {
 };
 
 export const createHashTagPlus = async (jsonData) => {
-  console.log(jsonData);
   const api = "hashtagplus/";
   return await apiPost(api, jsonData, true);
 };
+
+export const postTweet = async (jsonData) => {
+  const api = "tweet"; 
+  return await apiPost(api, jsonData, true); 
+}
+
+export const getMyTweets = async () => {
+  const api = "tweet/own"; 
+  return await apiGet(api, true); 
+}
+
+export const getUser = async (_id) => {
+  const api = `user/${_id}`; 
+  return await apiGet(api, true); 
+}
+
+export const getSelf = async (_id) => {
+  const api = 'user/self'; 
+  return await apiGet(api, true); 
+}
