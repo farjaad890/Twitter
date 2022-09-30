@@ -4,7 +4,7 @@ import Tweet from "../ctweet/ctweet";
 import { BiArrowBack } from "react-icons/bi";
 import { CgMoreAlt, CgCalendarDates } from "react-icons/cg";
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
-import { fetchTweets } from "../../helpers";
+import { fetchTweets, getMyTweets } from "../../helpers";
 import Errormessage from "../Error/Error";
 
 //import Tweet from "../tweet/tweet";
@@ -15,7 +15,7 @@ const Profile = () => {
   const [response, setresponse] = useState([]);
   useEffect(() => {
     const getTweets = async () => {
-      const parsedResp = await fetchTweets();
+      const parsedResp = await getMyTweets();
       setresponse(parsedResp);
       setTweets(parsedResp.data);
       return true;

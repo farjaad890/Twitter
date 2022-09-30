@@ -19,6 +19,7 @@ const Tweet = (props) => {
     mentioned,
     hashTags,
     replies,
+    walletAddress,
   } = tweet;
 
   const navigate = useNavigate();

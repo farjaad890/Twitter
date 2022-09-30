@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { Emoji, GIF, media, polls } from "./icons";
+import { postTweet } from "../../helpers";
+
 import "./tweet.scss";
 const Post = () => {
-  const [tweetText, setTweetText] = useState("sample text");
-
-  const postTweet = (e) => {
-    e.preventDefault();
-    console.log(tweetText);
-
-    //const { username, password } = e.target;
-
-    //console.log(username.value);
-    //console.log(password.value);
+  const [tweetText, setTweetText] = useState();
+  const posttweet = async () => {
+    // e.preventDefault();
+    var raw = {
+      text: tweetText,
+      privacy: "everyone",
+      whoCanReply: "everyone",
+    };
+    const parRes = await postTweet(raw);
+    // const parsedResponse = await postTweet(raw);
+    console.log(parRes);
   };
   const handlepoole = () => {
     console.log("Hello from the polls");
@@ -46,7 +49,7 @@ const Post = () => {
           <span>{media}</span>
           <span onClick={handlepoole}>{polls}</span>
         </div>
-        <button onClick={postTweet} className="Tweet-button">
+        <button onClick={posttweet} className="Tweet-button">
           Tweet
         </button>
       </div>

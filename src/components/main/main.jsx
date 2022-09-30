@@ -43,21 +43,3 @@ const Main = () => {
 };
 
 export default Main;
-
-// const  Main = () =>  {
-//     return (
-//        <div className="Main">
-//          <LeftPlane></LeftPlane>
-//         <Routes>
-//         <Route  exact path="/" element={<Homepage/>}/>
-//          <Route path='/explore'>Explore</Route>
-//          <Route path='/notifications'>Notifications</Route>
-//            <Route path='/messages'>Messages</Route>
-//            <Route path='/profile'>Profile</Route>
-//          </Routes>
-//        </div>
-
-//     );
-//   }
-
-//   export default Main;
