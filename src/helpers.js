@@ -102,3 +102,7 @@ export const getSelf = async (_id) => {
   const api = 'user/self'; 
   return await apiGet(api, true); 
 }
+export const getHashtags = async () => {
+  const api = 'hashtagplus/?itemsPerPage=5&page=1'; 
+  return await apiGet(api, true); 
+}

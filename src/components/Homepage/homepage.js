@@ -11,7 +11,6 @@ const Homepage = () => {
   useEffect(() => {
     const getTweets = async () => {
       const parsedResp = await fetchTweets();
-      console.log("this is working");
       setresponse(parsedResp);
       setTweets(parsedResp.data);
       return true;
