@@ -25,7 +25,7 @@ const Tweet = (props) => {
   const navigate = useNavigate();
 
   const navigateTo = () => {
-    navigate("/retweetDonation", { state: { name: "hello from the retweet" } });
+    navigate("/retweetDonation", { state: {walletaddress: user.walletAddress} });
   };
 
   const likeHandler = () => {
@@ -35,7 +35,8 @@ const Tweet = (props) => {
       setLike(false);
     }
   };
-
+  console.log("this is the tweet object");
+  console.log(tweet);
   return (
     <div id="tweet-box">
       <div id="profile-tweet">

@@ -8,10 +8,12 @@ import Main from "../main/main";
 import { useLocation } from "react-router-dom";
 import contractabi from "../abi/tokken.json";
 import Web3 from "web3";
+import { addAmount } from "../../helpers";
 
 const DonationBox = () => {
   const location = useLocation();
-  const contractAddress = "0xc5783385E8Af779C5FE3ac30d67A43cD0e6D3a99";
+  const navigate = useNavigate();
+  const contractAddress = "0x762b6A50eCABCEB33715E350dcc36e583C3911D8";
   const web3 = new Web3(Web3.givenProvider);
   const contractInstance = new web3.eth.Contract(
     contractabi.abi,
@@ -22,13 +24,22 @@ const DonationBox = () => {
       method: "eth_requestAccounts",
     });
     console.log(accounts);
-    const res = await contractInstance.methods.donateToHashTag(name).send({
+    const res = await contractInstance.methods.contributeToHashTag(name).send({
       from: accounts[0],
       value: ethers.utils.parseEther(ether),
     });
-    const res2 = await contractInstance.methods
-      .getDonatedAmountToHashTag(name)
-      .call();
+    var raw = {
+      amount: ether,
+      text: name,
+    };
+    const resamount = await addAmount(raw);
+    console.log("the return value of res ");
+    console.log(res);
+    console.log(resamount);
+    if (res) {
+      navigate("/hashplus");
+    }
+    const res2 = await contractInstance.methods.getHashTagBalance(name).call();
 
     console.log(res2);
   };

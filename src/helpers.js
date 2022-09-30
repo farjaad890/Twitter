@@ -106,3 +106,7 @@ export const getHashtags = async () => {
   const api = 'hashtagplus/?itemsPerPage=5&page=1'; 
   return await apiGet(api, true); 
 }
+export const addAmount = async (jsonData) => {
+  const api = "hashtagplus/amount"; 
+  return await apiPost(api, jsonData, true); 
+}

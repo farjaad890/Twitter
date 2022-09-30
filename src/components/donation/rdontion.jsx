@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import ErrorMessage from "./ErrorMessage";
 import TxList from "./TxList";
 import "../login/login.scss";
+import { useLocation } from "react-router-dom";
 
 const startPayment = async ({ setError, setTxs, ether, addr }) => {
   try {
@@ -25,9 +26,10 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
 };
 
 const RDonationBox = () => {
+  const location = useLocation();
   const [error, setError] = useState();
   const [txs, setTxs] = useState([]);
-  const address = "0x8B56B556408D3E0ACeC130DdBd9ecE5A812C946a";
+  const address = location.state.walletaddress;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -8,7 +8,7 @@ import DonationBox from "../donation/donation";
 const HashplusTile = (props) => {
   const navigate = useNavigate();
   const { tag } = props;
-  const { text, amount, expiry, description,_id } = tag;
+  const { text, amount, expiry, description, _id } = tag;
 
   const navigateTo = (id, name) => {
     navigate("/donationbox", { state: { name: name, id: id } });
@@ -35,7 +35,7 @@ const HashplusTile = (props) => {
           <SiGoogleanalytics />
         </button>
       </div>
-      <button onClick={() => navigateTo(_id,text)}>Donate</button>
+      <button onClick={() => navigateTo(_id, text)}>Donate</button>
     </div>
   );
 };
